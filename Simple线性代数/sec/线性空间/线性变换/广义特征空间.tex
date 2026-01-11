@@ -1,0 +1,96 @@
+
+% 2025 Simple·System
+
+% ./Section/线性空间/线性变换/广义特征空间
+
+\Convention{sec}{
+    \serial{•}令 $\mu$ 和 $\chi$ 分别表示 $T$ 的最小多项式和特征多项式.
+    \serial{•}对 $T$ 的任意特征值 $\lambda$ : 令 $\gm\braI{\lambda}$ 表示其几何重数.
+}
+
+\vspace{-4pt}
+
+\Definition{广义特征空间}{
+    设 $\lambda$ 是 $T$ 的特征值, 则 $T$ 对应于 $\lambda$ 的广义特征空间定义为
+    \begin{align*}
+        E_{T}^{*}\braI{\lambda}:=\bigcup_{k=0}^{\infty}\ker\braI{T-\lambda\bm I}^{k}\ ,
+    \end{align*}
+    其中的非零向量称为对应于 $\lambda$ 的广义特征向量.
+}
+
+\vspace{-4pt}
+
+\Corollary{广义特征空间包含特征空间}{
+    $E_{T}\braI{\lambda_{0}}\subseteq E_{T}^{*}\braI{\lambda_{0}}$ .
+}
+
+\vspace{-4pt}
+
+\Corollary{广义特征空间的不变性}{
+    $E_{T}^{*}\braI{\lambda_{0}}$ 在 $T$ 下不变.
+}
+
+\vspace{-4pt}
+
+\Theorem{广义特征向量的线性无关性}{
+    设 $\bm v_{1}\and\cdots\and\bm v_{n}$ 是分别对应于 $T$ 的互异特征值 $\lambda_{1}\and\cdots\and\lambda_{n}$ 的广义特征向量, 则 $(\bm v_{k})_{k=1}^{n}$ 线性无关.
+}
+\Lemma{引理}{
+    任何不同的广义特征空间的交集均为 $\braIII{\bm 0}$ .
+}
+\Proof{引理证明}{
+    \par 假设存在 $T$ 的特征值 $\lambda_{1}\and\lambda_{2}$ 使得存在某个非零向量 $\bm v\in E_{T}^{*}\braI{\lambda_{1}}\cap E_{T}^{*}\braI{\lambda_{2}}$ . 令 $n_{1}$ 和 $n_{2}$ 分别表示使得 $\bm v\in\ker\braI{T-\lambda_{1}\bm I}^{n_{1}}$ 和 $\bm v\in\ker\braI{T-\lambda_{2}\bm I}^{n_{2}}$ 成立的最小正整数并且 $n=\max\braIII{n_{1}\and n_{2}}$ , 我们有
+    \begin{align*}
+        \bm 0=\braI{\!\braI{T-\lambda_{1}\bm I}+\braI{\lambda_{1}-\lambda_{2}}\bm I}^{n}\bm v=\sum_{k=0}^{n}\rmC_{k}^{n}\braI{\lambda_{1}-\lambda_{2}}^{n-k}\braI{T-\lambda_{1}\bm I}^{k}\bm v\ .
+    \end{align*}
+    在上式两侧同时作用 $\braI{T-\lambda_{1}\bm I}^{n_{1}-1}$ 可得
+    \begin{align*}
+        \braI{\lambda_{1}-\lambda_{2}}^{n}\braI{T-\lambda_{1}\bm I}^{n_{1}-1}\bm v=\bm 0\ ,
+    \end{align*}
+    因为 $\braI{T-\lambda_{1}\bm I}^{n_{1}-1}\bm v\ne\bm 0$ , 所以 $\lambda_{1}=\lambda_{2}$ .\ProofEndT
+}
+\Proof{证明\method{数学归纳法\&反证法}}{
+    \par 当 $n=1$ 时. 因为 $\bm 0$ 不为特征向量, 所以上述命题必定成立.
+    \par 假设 $n=m$ 时上述命题成立. 现在假设 $n=m+1$ 时上述命题不成立, 即存在不全为 $0$ 的 $(a_{k})_{k=1}^{m+1}\in\bfF^{m+1}$ 使得
+    \begin{align*}
+        \sum_{k=1}^{m+1}a_{k}\bm v_{k}=\bm 0\ ,
+    \end{align*}
+    其中对每个正整数 $k\leqslant m+1$ 有 $\bm v_{k}\in E_{T}^{*}\braI{\lambda_{k}}$ .
+    \par 现在对上式两侧同时作用线性映射 $\braI{T-\lambda_{m+1}\bm I}^{\nu(\lambda_{m+1})}$ 可得
+    \begin{align*}
+        \sum_{k=1}^{m}a_{k}\braI{T-\lambda_{m+1}\bm I}^{\nu(\lambda_{m+1})}\bm v_{k}=\bm 0\ ,
+    \end{align*}
+    对一切正整数 $k\leqslant m$ , 令 $\bm v_{k}'=\braI{T-\lambda_{m+1}\bm I}^{\nu(\lambda_{m+1})}\bm v_{k}$ : 一方面, 我们有 $\bm v_{k}'\ne\bm 0$ , 否则 $\bm v_{k}$ 同时又为对应于特征值 $\lambda_{m+1}$ 的广义特征向量, 这与引理矛盾; 另一方面, 我们有
+    \begin{align*}
+        \braI{T-\lambda_{k}\bm I}^{\nu(\lambda_{k})}\bm v_{k}'=\braI{T-\lambda_{m+1}\bm I}^{\nu(\lambda_{m+1})}\braI{T-\lambda_{k}\bm I}^{\nu(\lambda_{k})}\bm v_{k}=\bm 0\ ,
+    \end{align*}
+    于是依然有 $\bm v_{k}'\in E_{T}^{*}\braI{\lambda_{k}}$ . 由归纳假设知 $a_{1}=\cdots=a_{m}=0$ , 从而 $a_{m+1}$ 是 $(a_{k})_{k=1}^{m+1}$ 中唯一不为 $0$ 的标量, 并且 $a_{m+1}\bm v_{m+1}=\bm 0$ , 由\link{线性空间}{无零因子性质}知 $\bm v_{m+1}=\bm 0$ , 但这是不可能的, 从而 $n=m+1$ 时上述命题成立. 这就完成了证明.\ProofEndT
+}
+\Proof{证明\method{反证法\&无穷递降原理}}{
+    \par 假设该命题不成立, 设 $m$ 是使得存在线性相关组
+    \begin{align*}
+        \braI{\bm v_{1}\and\bm v_{2}\and\cdots\and\bm v_{m}}\in\prod_{k=1}^{m}E_{T}^{*}\braI{\lambda_{k}}\setminus\braIII{\bm 0}
+    \end{align*}
+    的最小正整数, 其中 $\lambda_{1}\and\lambda_{2}\and\cdots\and\lambda_{m}$ 是 $T$ 的特征值. 容易发现 $m>1$ , 因为 $\bm 0$ 不可能为广义特征向量, 并且对任何满足
+    \begin{align*}
+        \sum_{k=1}^{m}a_{k}\bm v_{k}=\bm 0
+    \end{align*}
+    的 $(a_{k})_{k=1}^{m}\in\bfF^{m}$ 都有 $a_{k}\ne0$ 对一切正整数 $k\leqslant m$ 成立, 否则从中去除使得 $a_{k}=0$ 的 $\bm v_{k}$ 便立即得到更小的线性相关组 $\braI{\bm v_{1}\and\cdots\and\bm v_{k-1}\and\bm v_{k+1}\and\cdots\and\bm v_{m}}$ .
+    \par 现在对上式两侧同时作用线性映射 $\braI{T-\lambda_{m}\bm I}^{\nu(\lambda_{m})}$ 可得
+    \begin{align*}
+        \sum_{k=1}^{m-1}a_{k}\braI{T-\lambda_{m}\bm I}^{\nu(\lambda_{m})}\bm v_{k}=\bm 0\ ,
+    \end{align*}
+    对一切正整数 $k\leqslant m$ , 令 $\bm v_{k}'=\braI{T-\lambda_{m}\bm I}^{\nu(\lambda_{m})}\bm v_{k}$ : 一方面, 我们有 $\bm v_{k}'\ne\bm 0$ , 否则 $\bm v_{k}$ 同时又为对应于特征值 $\lambda_{m}$ 的广义特征向量, 这与引理矛盾; 另一方面, 我们有
+    \begin{align*}
+        \braI{T-\lambda_{k}\bm I}^{\nu(\lambda_{k})}\bm v_{k}'=\braI{T-\lambda_{m}\bm I}^{\nu(\lambda_{m})}\braI{T-\lambda_{k}\bm I}^{\nu(\lambda_{k})}\bm v_{k}=\bm 0\ ,
+    \end{align*}
+    于是依然有 $\bm v_{k}'\in E_{T}^{*}\braI{\lambda_{k}}$ . 至此我们又得到了更小的线性相关组
+    \begin{align*}
+        \braI{\bm v_{1}'\and\cdots\and\bm v_{m-1}'}\in\prod_{k=1}^{m-1}E_{T}^{*}\braI{\lambda_{k}}\setminus\braIII{\bm 0}\ .
+    \end{align*}
+    因此 $m$ 不可能是使得这样的线性相关组存在的最小正整数. 这就完成了证明.\ProofEndT
+}
+
+\par 在上面两个版本的证明中, 我们都应用了 $T-\lambda_{k}\bm I$ 的重要性质: 将 $\bm v_{k}$ 映成 $\bm 0$ 而保留线性组合中其它向量的非零性. 假设由广义特征向量构成的向量组是线性相关的, 那么其中任何一个广义特征向量在经过 $T-\lambda_{k}\bm I$ 的作用后都会失去对相关性的贡献, 从而是可去除的, 但空组 $\braI{}$ 不是线性相关的, 这里出现的矛盾就是证明的思想所在.
+
+\newpage

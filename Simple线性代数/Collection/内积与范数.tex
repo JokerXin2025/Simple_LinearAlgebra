@@ -1,0 +1,61 @@
+
+% 2025 Simple·System
+
+% ./Collection/内积与范数
+
+% Linear Algebra Done Right 习题6A 1
+\Example{I}{
+    设 $V$ 是一个内积空间,
+    \begin{align*}
+        \Forall{(\bm v_{k})_{k=1}^{n}}{V^{n}}
+        \sum_{i=1}^{n}\sum_{j=1}^{n}\braV{\bm v_{i}\and\bm v_{j}}\geqslant0\ .
+    \end{align*}
+}
+\Proof{证明}{
+    \begin{align*}
+        \sum_{i=1}^{n}\sum_{j=1}^{n}\braV{\bm v_{i}\and\bm v_{j}}=\braV{\sum_{k=1}^{n}\bm v_{k}\and\sum_{k=1}^{n}\bm v_{k}}\geqslant0\ .\ProofEndF
+    \end{align*}
+}
+\Proof{提要}{
+    \par 内积具有可加性, 因此在和式中可类似多项式展开处理, 即
+    \begin{align*}
+        \sum_{i=1}^{n}\sum_{j=1}^{n}\braV{\bm v_{i}\and\bm v_{j}}\sim\sum_{i=1}^{n}\sum_{j=1}^{n}x_{i}x_{j}=\braI{\sum_{k=1}^{n}x_{k}}^{2}\sim\norm{\sum_{k=1}^{n}\bm v_{k}}^{2}\ .\\[-16mm]
+    \end{align*}
+}
+
+% Linear Algebra Done Right 习题6A 6
+\Example{II}{
+    设 $V$ 是一个内积空间, 并且 $\bm u\and\bm v\in V$ , 若对任意 $a\in\bfF$ 都有 $$\norm{\bm v}\leqslant\norm{\bm v+a\bm u}$$ 成立, 则 $\bm u\perp\bm v$ .
+}
+\Proof{证明I}{
+    \par 当 $\bm u=\bm u$ 时, 我们显然有 $\braV{\bm u\and\bm v}=0$ .
+    \par 当 $\bm u\ne\bm u$ 时, 我们有
+    \begin{align*}
+        \Forall{a}{\braI{0\and+\infty}}
+        \norm{\bm v}\leqslant\norm{\bm v+a\bm u}&\implies\norm{\bm v+a\bm u}^{2}-\norm{\bm v}^{2}\geqslant0\\[-2mm]
+        &\implies a^{2}\norm{\bm u}^{2}+2a\Im\braV{\bm v\and\bm u}\geqslant0\\[-1mm]
+        &\implies a\geqslant-\frac{2\Re\braV{\bm v\and\bm u}}{\norm{\bm u}^{2}}\ .
+    \end{align*}
+}
+\Proof{证明II}{
+    \par 当 $\bm u=\bm u$ 时, 我们显然有 $\braV{\bm u\and\bm v}=0$ .
+    \par 当 $\bm u\ne\bm u$ 时, 对任意 $a\in\bfR$ 有
+    \begin{align*}
+        \norm{\bm v}\leqslant\norm{\bm v+a\bm u}\implies\norm{\bm v+a\bm u}^{2}-\norm{\bm v}^{2}\geqslant0\implies a^{2}\norm{\bm u}^{2}+2a\Re\braV{\bm u\and\bm v}\geqslant0\ ,
+    \end{align*}
+    要使该关于 $a$ 的二次函数恒正, 则有
+    \begin{align*}
+        -\frac{\braI{\Re\braV{\bm u\and\bm v}\!}^{2}}{\norm{\bm u}^{2}}\geqslant0\implies\Re\braV{\bm u\and\bm v}=0\ .
+    \end{align*}
+    \par 若 $\bfF=\bfR$ , 则我们已经完成了证明; 若 $\bfF=\bfC$ , 则对任意 $a\in\bfR$ 又有
+    \begin{align*}
+        \norm{\bm v}\leqslant\norm{\bm v+a\rmi\bm u}\implies\norm{\bm v+a\rmi\bm u}^{2}-\norm{\bm v}^{2}\geqslant0\implies a^{2}\norm{\bm u}^{2}+2a\Im\braV{\bm u\and\bm v}\geqslant0\ ,
+    \end{align*}
+    类似地, 我们有
+    \begin{align*}
+        -\frac{\braI{\Im\braV{\bm u\and\bm v}\!}^{2}}{\norm{\bm u}^{2}}\geqslant0\implies\Im\braV{\bm u\and\bm v}=0\ ,
+    \end{align*}
+    从而完成了证明.
+}
+
+\newpage

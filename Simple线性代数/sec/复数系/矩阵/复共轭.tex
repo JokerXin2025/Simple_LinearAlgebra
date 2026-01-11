@@ -1,0 +1,47 @@
+
+% 2025 Simple·System
+
+% ./Section/复数系/矩阵/复共轭
+
+\Definition{共轭矩阵}{
+    设 $\bm A$ 是 $\bfC$ 上的 $m\times n$ 型矩阵, $\bm A$ 的共轭定义为 $m\times n$ 型矩阵
+    \begin{align*}
+        \overline{\bm A}\ :\ \braI{i\and j}\mapsto\overline{\bm A\braI{i\and j}}\ ,
+    \end{align*}
+    即
+    \begin{align*}
+        \overline{\matrix{ccc}{
+            A_{1,1} \* \cdots \* A_{1,n} \\[-1mm]
+            \vdots \* \ddots \* \vdots \\[-1mm]
+            A_{m,1} \* \cdots \* A_{m,n}
+        }}:=\matrix{ccc}{
+            \overline{A_{1,1}} \* \cdots \* \overline{A_{1,n}} \\[-1mm]
+            \vdots \* \ddots \* \vdots \\[-1mm]
+            \overline{A_{m,1}} \* \cdots \* \overline{A_{m,n}}
+        }\ .
+    \end{align*}
+}
+
+\vspace{-4pt}
+
+\Corollary{共轭矩阵的性质}{
+    设 $\bm A\and\bm B$ 是 $\bfC$ 上的 $m\times n$ 型矩阵, 则对于共轭矩阵有如下性质成立:
+    \serial{1.}可加性: $\overline{\bm A+\bm B}=\overline{\bm A}+\overline{\bm B}$ .
+    \serial{2.}共轭齐次性: $\overline{\lambda\bm A}=\overline{\lambda}\,\overline{\bm A}$ .
+    \serial{3.}共轭转置: $\overline{\bm A^{\rmT}}=\overline{\bm A}^{\rmT}$ , 此矩阵称为 $\bm A$ 的\newconcept{共轭转置矩阵}并记作 $\bm A^{\rmH}$ .
+    \serial{4.}行列式: $\det\overline{\bm A}=\overline{\det\bm A}$ .
+}
+
+\vspace{-4pt}
+
+\Definition{Hermitian矩阵}{
+    设 $\bm A$ 是 $n$ 阶方阵, $\bm A$ 是\newconcept{Hermitian矩阵}当且仅当 $\bm A=\bm A^{\rmH}$ .
+}
+
+\vspace{-4pt}
+
+\Corollary{Hermitian矩阵的性质}{
+    设
+}
+
+\newpage

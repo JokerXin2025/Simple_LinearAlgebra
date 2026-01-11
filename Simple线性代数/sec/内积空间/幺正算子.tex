@@ -1,0 +1,62 @@
+
+% 2025 Simple·System
+
+% ./Section/内积空间/幺正算子
+
+\Definition{幺正算子}{
+    称线性变换 $T\in\mathcal{L}\braI{V}$ 是幺正算子, 当且仅当 $T$ 是可逆等距映射.
+}
+
+\vspace{-4pt}
+
+\Corollary{有限维等距映射是幺正算子}(有限维等距映射\nogap $\implies$\nogap 幺正算子){
+    设 $V$ 是有限维的, 则 $T\in\mathcal{L}\braI{V}$ 是幺正算子.
+}
+
+\vspace{-4pt}
+
+\Corollary{幺正算子implies正规算子}<幺正算子\!$\implies$\!正规算子>{
+    任何幺正算子都是正规算子.
+}
+
+\vspace{-4pt}
+
+\Theorem{幺正算子的性质}{
+    设 $S\and T\in\mathcal{L}\braI{V}$ 是幺正算子, 则
+    \serial{1.}$T^{-1}=T^{*}$ , 即 $T^{*}T=TT^{*}=\bm I_{V}$ .
+    \serial{2.}$T^{-1}$ 是幺正算子.
+    \serial{3.}$S\circ T$ 是幺正算子.
+    \serial{4.}若 $\lambda$ 是 $T$ 的特征值, 则 $\braIV{\lambda}=1$ .
+}
+\Proof{\sentence{1}证明}{
+    \begin{align*}
+        T^{-1}=\bm I_{V}T^{-1}=T^{*}TT^{-1}=T^{*}\ .\ProofEndF
+    \end{align*}
+}
+\Proof{\sentence{2}证明}{
+    \par 证明.
+}
+\Proof{\sentence{3}证明}{
+    \par 证明.
+}
+\Proof{\sentence{4}证明}{
+    \par 设 $\bm v$ 是对应于特征值 $\lambda$ 的特征向量, 则
+    \begin{align*}
+        \norm{\bm v}=\norm{T\bm v}=\norm{\lambda\bm v}=\braIV{\lambda}\norm{\bm v}\ ,
+    \end{align*}
+    于是 $\braIV{\lambda}=1$ .\ProofEndT
+}
+
+\par 对于非零有限维线性空间中的幺正算子, 其在规范正交基下的矩阵称为{\it 幺正矩阵}.
+
+\Corollary{幺正矩阵的性质}{
+    设 $\bm A\and\bm B$ 是幺正矩阵, 记 $\bm A^{\rmH}=\overline{\bm A}\,^{\rmT}$ , 则
+    \serial{1.}$\bm A^{-1}=\bm A^{\rmH}$ , 即 $\bm A^{\rmH}\bm A=\bm A\bm A^{\rmH}=\bm I$ .
+    \serial{2.}$\braIV{\det\bm A}=1$ .
+    \serial{3.}$\bm A^{-1}$ 是幺正矩阵.
+    \serial{4.}$\bm A\bm B$ 是幺正矩阵.
+}
+
+\par 当 $V$ 是实线性空间时, 幺正算子称为{\it 正交算子}, 对应的幺正矩阵称为{\it 正交矩阵}, 此时上述性质中的共轭转置退化为转置. 当 $V$ 是复线性空间时, 幺正算子称为{\it 酉算子}, 对应的幺正矩阵称为{\it 酉矩阵}.
+
+\newpage

@@ -1,0 +1,32 @@
+
+% 2025 Simple·System
+
+% ./Section/赋范空间/线性算子/有界算子
+
+\Convention{sec}{
+    \serial{•}设 $T\in\mathcal{L}\braI{U\and V}$ .
+}
+
+\vspace{-4pt}
+
+\Definition{有界线性算子}{
+    线性算子 $T$ 有界, 当且仅当存在 $C\in\bfR$ 使得对任意 $\bm u\in U$ 有 $$\norm{T\bm u}\leqslant C\norm{\bm u}\ .$$
+}
+
+\par 容易发现, 当 $T$ 有界时, $\norm{T}$ 是使得不等式 $\norm{T\bm u}\leqslant C\norm{\bm u}$ 成立的最小实数 $C$ .
+
+\Theorem{有界线性算子的等价条件}{
+    $T$ 有界当且仅当 $\norm{T}<+\infty$ .
+}
+\Proof{\limplyr 证明}{
+    \par 对任意满足 $\norm{\bm u}=1$ 的 $\bm u\in U$ , 我们有 $\norm{T\bm u}\leqslant C$ 成立, 其中 $C\in\bfR$ , 从而 $\norm{T}<+\infty$ .\ProofEndT
+}
+\Proof{\rimplyl 证明}{
+    \par 对任意非零向量 $\bm u\in U$ , 我们有
+    \begin{align*}
+        \frac{1}{\norm{\bm u}}\norm{T\bm u}=\norm{T\braI{\frac{\bm u}{\norm{\bm u}}}\!}\leqslant\norm{T}\implies\norm{T\bm u}\leqslant\norm{T}\norm{\bm u}\ ,
+    \end{align*}
+    其中 $\norm{T}\in\bfR$ , 同时 $\norm{T\bm 0}\leqslant\norm{T}\norm{\bm 0}$ 也成立, 这就完成了证明.\ProofEndT
+}
+
+\newpage

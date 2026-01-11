@@ -1,0 +1,24 @@
+
+% 2025 Simple·System
+
+% ./Section/线性空间/最小多项式/定义
+
+\Theorem{最小多项式}{
+    存在唯一使得 $p\braI{T}=\bm 0$ 成立且次数最小的首一多项式 $p\in\poly{\bfF}{x}$ , 称其为 $T$ 的\newconcept{最小多项式}.
+}
+\Proof{证明}{
+    \par 假设 $p$ 和 $p'$ 是 $T$ 的不同的最小多项式, 此时 $\deg p=\deg p'$ , 则
+    \begin{align*}
+        \braI{p-p'}\braI{T}=p\braI{T}-p'\braI{T}=\bm 0-\bm 0=\bm 0\ ,
+    \end{align*}
+    设 $p-p'$ 的首项系数为 $a$ 并令 $q=\sfrac{\braI{p-p'}}{a}$ , 则 $q$ 是使得 $q\braI{T}=\bm 0$ 成立且次数更小的首一多项式, 这与 $p$ 和 $p'$ 的最小性矛盾.\ProofEndT
+}
+
+\Theorem{有限维最小多项式}{
+    设 $V$ 是有限维空间, 则 $T$ 有次数不大于 $\dim V$ 的最小多项式.
+}
+\Proof{证明}{
+    \par 这由\link{有限维线性空间}[特征多项式]{Cayley—Hamilton定理}保证.\ProofEndT
+}
+
+\newpage

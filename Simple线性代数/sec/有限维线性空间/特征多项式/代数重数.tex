@@ -1,0 +1,70 @@
+
+% 2025 Simple·System
+
+% ./Section/有限维线性空间/特征多项式/代数重数
+
+\Definition{代数重数}{
+    $T$ 的特征值 $\lambda$ 的代数重数 $\am_{T}\braI{\lambda}$ 定义为 $\lambda$ 作为 $p_{T}$ 的根的重数.
+}
+
+\vspace{-4pt}
+
+\Theorem{重数不等式}{
+    设 $\lambda$ 是 $T$ 的特征值, 则 $\gm_{T}\braI{\lambda}\leqslant\am_{T}\braI{\lambda}$ .
+}
+\Proof{证明}{
+    \par 记 $(\bm v_{k})_{k=1}^{m}$ 是 $E_{T}\braI{\lambda_{0}}$ 的基, 并且可以将其扩充为 $V$ 的基 $(\bm v_{k})_{k=1}^{n}$ , 进而 $T$ 在 $(\bm v_{k})_{k=1}^{n}$ 下的矩阵可表示为
+    \begin{align*}
+        \bm T=\braII{\begin{array}{cc}
+            \lambda\bm I_{m}&\bm A\\[-1mm]
+            \bm O&\bm B
+        \end{array}}\ ,
+    \end{align*}
+    因此
+    \begin{align*}
+        p_{T}\braI{x}&=\det\braI{x\bm I_{n}-\bm T}\\
+        &=\det\braII{\begin{array}{cc}
+            \braI{x-\lambda}\bm I_{m}&\bm A\\[-1mm]
+            \bm O&x\bm I_{n-m}-\bm B
+        \end{array}}\\
+        &=\braI{x-\lambda}^{m}\det\braI{x\bm I_{n-m}-\bm C}\ .
+    \end{align*}
+    这表明 $\lambda$ 至少为 $p_{T}$ 的 $m$ 重根, 即 $\am_{T}\braI{\lambda}\geqslant m$ .\ProofEndT
+}
+
+\Theorem{有限维广义特征空间的维数}{
+    $\dim E_{T}^{*}\braI{\lambda_{0}}=\am\braI{\lambda_{0}}$ .
+}
+\Proof{证明}{
+    \par 记 $(\bm v_{k})_{k=1}^{m}$ 是 $E_{T}^{*}\braI{\lambda_{0}}$ 的基, 并且可以将其扩充为 $V$ 的基
+    \begin{align*}
+        \braI{\bm v_{1}\and\cdots\and\bm v_{m}\and\bm v_{m+1}\and\cdots\and\bm v_{n}}\ ,
+    \end{align*}
+    由\link{线性空间}[广义特征空间]{广义特征空间的不变性}可知 $T$ 在该基下的矩阵可表示为
+    \begin{align*}
+        \bm T=\braII{\begin{array}{cc}
+            \lambda_{0}\bm I_{m}&\bm A\\[-2mm]
+            \bm O&\bm B
+        \end{array}}\ .
+    \end{align*}
+    记 $V_{0}=\spn\,(\bm v_{k})_{k=m+1}^{n}$ , 令 $T_{B}:V_{0}\to V_{0}$ 表示在基 $(\bm v_{k})_{k=m+1}^{n}$ 下矩阵为 $\bm B$ 的映射, 假设 $\lambda_{0}$ 是 $T_{B}$ 的特征值, 则存在非零向量 $\bm v\in V_{0}$ 使得
+    \begin{align*}
+        T_{B}\bm v=\lambda_{0}\bm v\AND T\bm v=\lambda_{0}\bm v+\bm v'\ ,
+    \end{align*}
+    其中 $\bm v'\in E_{T}^{*}\braI{\lambda_{0}}$ , 于是我们有
+    \begin{align*}
+        \braI{T-\lambda_{0}\bm I}^{\nu(\lambda_{0})+1}\bm v=\braI{T-\lambda_{0}\bm I}^{\nu(\lambda_{0})}\braI{T-\lambda_{0}\bm I}\bm v=\braI{T-\lambda_{0}\bm I}^{\nu(\lambda_{0})}\bm v'=\bm 0\ ,
+    \end{align*}
+    即 $\bm v\in E_{T}^{*}\braI{\lambda_{0}}$ , 然而我们知道 $E_{T}^{*}\braI{\lambda_{0}}\cap V_{0}=\braIII{\bm 0}$ , 这就导出了矛盾, 因此 $\lambda_{0}$ 不是 $T_{B}$ 的特征值, 此时 $T$ 的特征多项式可表示为
+    \begin{align*}
+        \chi\braI{\lambda}&=\det\braI{\lambda\bm I_{n}-\bm T}\\
+        &=\det\braII{\begin{array}{cc}
+            \braI{\lambda-\lambda_{0}}\bm I_{m}&\bm A\\[-2mm]
+            \bm O&\lambda\bm I_{n-m}-\bm B
+        \end{array}}\\
+        &=\braI{\lambda-\lambda_{0}}^{m}\det\braI{\lambda\bm I_{n-m}-\bm B}\ .
+    \end{align*}
+    其中 $\det\braI{\lambda\bm I_{n-m}-\bm B}$ 中无因子 $\lambda-\lambda_{0}$ , 即 $\am\braI{\lambda_{0}}=m$ .\ProofEndT
+}
+
+\newpage

@@ -1,0 +1,81 @@
+
+% 2025 Simple·System
+
+% ./Section/有限维线性空间/特征多项式/基本性质
+
+\Theorem{特征多项式的零点等价于特征值}(特征多项式的零点\nogap $\iff$\nogap 特征值){
+    设 $\lambda\in\bfF$ , 则 $\lambda$ 是 $T$ 的特征值当且仅当 $p_{T}\braI{\lambda}=0$ .
+}
+\Proof{证明}{
+    \par 由\link{线性空间}[线性变换]{特征值}的定义可知, $\lambda$ 是 $T$ 的特征值当且仅当 $\lambda\bm I_{V}-T$ 不可逆, 这进一步当且仅当 $\det\braI{\lambda\bm I-\bm A}=0$ , 其中 $\bm A$ 是 $T$ 在某个基下的矩阵, 也即 $p_{T}\lambda=0$ .\ProofEndT
+}
+
+\Corollary{特征值的数量上限}{
+    $T$ 最多有 $n$ 个不同的特征值.
+}
+
+\vspace{-4pt}
+
+\Theorem{特征值的和与积}{
+    若 $T$ 的特征多项式分裂, 则
+    \begin{align*}
+        \sum_{k=1}^{n}\lambda_{k}=\tr\bm A\AND\prod_{k=1}^{n}\lambda_{k}=\det\bm A\ ,
+    \end{align*}
+    其中 $\lambda_{1}\and\cdots\and\lambda_{n}$ 是 $T$ 的特征值, $\bm A$ 是 $T$ 在某个基下的矩阵.
+}
+\Proof{证明}{
+    \par 设
+    \begin{align*}
+        \braIV{\begin{array}{ccc}
+            \lambda-a_{11} \* \cdots \* -a_{1n} \\[-1mm]
+            \vdots \* \ddots \* \vdots \\[-1mm]
+            -a_{n1} \* \cdots \* \lambda-a_{nn}
+        \end{array}}
+        =\lambda^{n}+a_{n-1}\lambda^{n-1}+\cdots+a_{1}\lambda+a_{0}\ ,
+    \end{align*}
+    则 $a_{n-1}=-\tr\bm A$ 和 $a_{0}=\braI{-1}^{n}\det\bm A$ , 应用Vieta定理即得结论.\ProofEndT
+}
+
+\par 对上面的过程进行推广可以得到如下展开式.
+
+\Corollary{特征多项式的展开式}{
+    设
+    \begin{align*}
+        \bm A=\matrix{ccc}{
+            a_{11} \* \cdots \* a_{1n} \\[-1mm]
+            \vdots \* \ddots \* \vdots \\[-1mm]
+            a_{n1} \* \cdots \* a_{nn}
+        }
+    \end{align*}
+    是 $T$ 在某个基下的矩阵, 则 $T$ 的特征多项式可表示为
+    \begin{align*}
+        p_{T}:\lambda\mapsto\lambda^{n}+a_{n-1}\lambda^{n-1}+\cdots+a_{1}\lambda+a_{0}\ ,
+    \end{align*}
+    其中 $a_{n-1}=-\tr\bm A$ ,
+    \begin{align*}
+        a_{n-2}=\sum_{1\leqslant i\leqslant j\leqslant n}
+        \braIV{\begin{array}{cc}
+            a_{ii} \* a_{ij} \\[-1mm]
+            a_{ji} \* a_{jj}
+        \end{array}}
+        \quad,\quad a_{n-3}=-\sum_{1\leqslant i\leqslant j\leqslant k\leqslant n}
+        \braIV{\begin{array}{ccc}
+            a_{ii} \* a_{ij} \* a_{ik} \\[-1mm]
+            a_{ji} \* a_{jj} \* a_{jk} \\[-1mm]
+            a_{ki} \* a_{kj} \* a_{kk}
+        \end{array}}
+        \quad,\quad\cdots
+    \end{align*}
+    $a_{0}=\braI{-1}^{n}\det\bm A$ .
+}
+
+\vspace{-4pt}
+
+\Theorem{Cayley—Hamilton定理}(Cayley\—Hamilton定理){
+    $p_{T}\braI{T}=\bm 0$ .
+}
+\Proof{证明}{
+    \par 证明.
+}
+
+\newpage

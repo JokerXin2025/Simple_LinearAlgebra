@@ -1,0 +1,53 @@
+
+% 2025 Simple·System
+
+% ./Section/线性空间/线性变换/循环空间
+
+\Definition{循环空间}{
+    设 $\bm v\in V$ , $\bm v$ 在 $T$ 作用下生成的\newconcept{循环空间}定义为
+    \begin{align*}
+        C_{T}\braI{\bm v}:=\spn\,(T^{k}\bm v)_{k=1}^{\infty}\ .
+    \end{align*}
+}
+
+\vspace{-4pt}
+
+\Theorem{有限维循环空间的基}{
+    设 $\bm v\in V$ , 若 $C_{T}\braI{\bm v}$ 的维数有限, 则 $\braI{\bm v\and\cdots\and T^{n-1}\bm v}$ 是 $C_{T}\braI{\bm v}$ 的基, 其中 $n=\dim C_{T}\braI{\bm v}$ .
+}
+\Proof{证明}{
+    \color{red}
+    \par 鉴于 $\braI{\bm v\and\cdots\and T^{n-1}\bm v}$ 长度为 $n$ , 只需证明其张成 $C_{T}\braI{\bm v}$ 即可. 注意到 $\braI{\bm v\and\cdots\and T^{n}\bm v}$ 必定线性相关, 因此有 $(a_{k})_{k=0}^{n-1}\in\bfF^{n}$ 使得
+    \begin{align*}
+        T^{n}\bm v=\sum_{j=0}^{n-1}a_{j}T^{j}\bm v\ .
+    \end{align*}
+    对任意 $\bm v'\in C_{T}\braI{\bm v}$ , 我们设 $\bm v'=a_{0}\bm v+\cdots+a_{N}T^{N}\bm v$ , 则
+    \begin{align*}
+        \bm v'&=\sum_{k=0}^{n-1}a_{k}T^{k}\bm v+\sum_{k=n}^{N}a_{k}T^{k}\bm v\\[1mm]
+        &=\sum_{k=0}^{n-1}a_{k}T^{k}\bm v+\sum_{k=n}^{N}T^{k-n}a_{k}T^{n}\bm v\\[1mm]
+        &=\sum_{k=0}^{n-1}a_{k}T^{k}\bm v+\sum_{k=n}^{N}T^{k-n}\sum_{j=0}^{n-1}a_{j}T^{j}\bm v\\[1mm]
+        &=\sum_{j=0}^{m-1}a_{j}T^{k-m+j}\bm v\in\spn\braI{\bm v\and\cdots\and T^{m-1}\bm v}\ ,
+    \end{align*}
+    因此 $\bm v'\in\spn\braI{\bm v\and\cdots\and T^{n-1}\bm v}$ .\ProofEndT
+}
+
+\par 上述定理表明, 有限维循环空间的维数即使得 $\braI{\bm v\and\cdots\and T^{m-1}\bm v}$ 线性无关的最大自然数 $m$ . 特别地, 当 $C_{T}\braI{\bm v}$ 是\newconcept{幂零循环空间}, 即 $\bm v$ 落在某个 $T^{k}$ 的核中时, 我们有下面用于确定循环空间维数的结论.
+
+\Theorem{幂零循环空间的维数}{
+    设 $\bm v\in V$ , 若存在自然数 $n$ 使得 $T^{n}\bm v=\bm 0$ 并且 $T^{k}\bm v\ne\bm 0$ 对一切自然数 $k<n$ 成立, 则 $\dim C_{T}\braI{\bm v}=n$ .
+}
+\Proof{证明\method{流程}}{
+    \par 注意到 $T^{k}\bm v=\bm 0$ 对一切 $k\geqslant n$ 成立, 只需证明 $\braI{\bm v\and\cdots\and T^{n-1}\bm v}$ 线性无关即可.
+    \par 设 $(a_{k})_{k=0}^{n-1}\in\bfF^{n}$ 是使得
+    \begin{align*}
+        \sum_{k=0}^{n-1}a_{k}T^{k}\bm v=\bm 0
+    \end{align*}
+    成立的线性系数, 现在从 $0$ 开始依次考虑每个自然数 $m<n$ . 在上式两端同时作用 $T^{n-m-1}$ 可得
+    \begin{align*}
+        \sum_{k=0}^{m}a_{k}T^{n+k-m-1}\bm v=\bm 0\ ,
+    \end{align*}
+    由 $a_{k}=0$ 对一切自然数 $k<m$ 成立以及 $T^{n-1}\bm v\ne\bm 0$ 可知 $a_{m}=0$ .
+    \par 当考虑完所有的自然数 $m$ 后, 我们得到 $a_{0}=\cdots=a_{n-1}=0$ , 这就完成了证明.\ProofEndT
+}
+
+\newpage

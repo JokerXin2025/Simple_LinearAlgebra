@@ -1,0 +1,27 @@
+
+% 2025 Simple·System
+
+% ./Section/实线性空间/二次型/定义
+
+\Definition{二次型}{
+    设 $Q:V\to\bfF$ , $Q$ 是 $V$ 上的二次型, 当且仅当其满足如下性质:
+    \serial{•}二次齐次性: $Q\braI{\lambda\bm v}=\lambda^{2}Q\braI{\bm v}$ 对一切 $\lambda\in\bfF$ 和 $\bm v\in V$ 成立.
+    \serial{•}极形式:
+    \begin{align*}
+        \beta:V^{2}\to\bfF\ ,\ \braI{\bm u\and\bm v}\mapsto Q\braI{\bm u+\bm v}-Q\braI{\bm u}-Q\braI{\bm v}
+    \end{align*}
+    是双线性型.
+}
+
+\vspace{-4pt}
+
+\Theorem{二次型的判定准则}{
+    设 $Q:V\to\bfF$ , $Q$ 是二次型当且仅当存在 $V$ 上的双线性型 $\beta$ 使得 $Q:\bm v\mapsto\beta\braI{\bm v\and\bm v}$ .
+}
+\Proof{\limplyr 证明}{
+    \par 证明.
+}
+
+\par 当 $\char\bfF\ne 2$ 时, 我们可以将上述判定准则中的双线性型 $\beta$ 替换为对称双线性型 $\rho$ , 这是因为我们可以\link{线性空间}[双线性型]{双线性型的对称交错分解}(将$\beta$分解为对称型$\rho$和交错型$\alpha$的和), 而 $\alpha\braI{\bm v\and\bm v}=0$ 恒成立.
+
+\newpage

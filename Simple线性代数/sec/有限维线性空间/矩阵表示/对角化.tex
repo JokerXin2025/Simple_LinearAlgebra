@@ -1,0 +1,60 @@
+
+% 2025 Simple·System
+
+% ./Section/有限维线性空间/矩阵表示/对角化
+
+\Definition{可对角化}{
+    线性变换 $T$ \newconcept{可对角化}, 当且仅当 $T$ 在某个基 $B$ 下的矩阵为对角矩阵.
+}
+
+\par 我们知道对角矩阵具有良好的幂运算性质, 因此若线性变换 $T$ 可对角化, 则
+
+\Theorem{可对角化的等价条件}{
+    对于线性映射 $T$ , 下列各命题等价:
+    \serial{1.}$T$ 可对角化.
+    \serial{2.}存在 $V$ 的某个基 $B$ 由 $T$ 的特征向量组成.
+    \serial{3.}$T$ 的最小多项式形如
+    \begin{align*}
+        \mu_{T}\braI{x}=\prod_{k=1}^{n}\braI{x-\lambda_{k}}\ .
+    \end{align*}
+    \serial{4.}$T$ 的最小多项式在 $\bfF$ 中分裂且 $E_{T}\braI{\lambda}=E_{T}^{*}\braI{\lambda}$ 对每个特征值 $\lambda$ 都成立.
+    \serial{5.}$T$ 的最小多项式在 $\bfF$ 中分裂且 $\gm_{T}\braI{\lambda}=\am_{T}\braI{\lambda}$ 对每个特征值 $\lambda$ 都成立.
+}
+\Proof{\biimply{1}{2}证明}{
+    \par 这是显然的.\ProofEndT
+}
+\Proof{\biimply{3}{4}证明}{
+    \par 我们已经知道特征多项式分裂等价于最小多项式分裂. 对于任何特征值 $\lambda$ , 设 $\nu$ 是 $\lambda$ 的指数, 我们知道 $E_{T}\braI{\lambda}=\ker\braI{T-\lambda\bm I}$ 和 $E_{T}^{*}\braI{\lambda}=\ker\braI{T-\lambda\bm I}^{\nu}$ , 于是 $E_{T}\braI{\lambda}=E_{T}^{*}\braI{\lambda}$ 等价于 $\nu=1$ .\ProofEndT
+}
+\Proof{\biimply{4}{5}证明}{
+    \par 对于任何特征值 $\lambda$ , 我们知道 $E_{T}\braI{\lambda}\subseteq E_{T}^{*}\braI{\lambda}$ , 于是由\link{有限维线性空间}{子空间的维数}知
+    \begin{align*}
+        E_{T}\braI{\lambda}=E_{T}^{*}\braI{\lambda}\iff\dim E_{T}\braI{\lambda}=\dim E_{T}^{*}\braI{\lambda}\iff\gm_{T}\braI{\lambda}=\am_{T}\braI{\lambda}\ .\ProofEndF
+    \end{align*}
+}
+
+\Corollary{可对角化的充分条件}{
+    若 $T$ 有 $\dim V$ 个不同的特征值, 则 $T$ 可对角化.
+}
+
+\vspace{-4pt}
+
+\Theorem{不变子空间上的可对角化性质}{
+    设 $V=V_{1}\oplus\cdots\oplus V_{n}$ , 其中每个 $V_{k}$ 都是 $V$ 在 $T$ 下的不变子空间, 则 $T$ 可对角化当且仅当每个 $T\restrict{V_{k}}{}$ 都可对角化.
+}
+\Proof{\limplyr 证明}{
+    \par 若 $T$ 在基 $B$ 下的矩阵为对角矩阵, 则我们可以\link{有限维线性空间}{基的缩减构造}(将$B$缩减)为 $V_{k}$ 的基 $B_{k}$ , 显然 $T\restrict{V_{k}}$ 在基 $B_{k}$ 下的矩阵仍为对角矩阵.\ProofEndT
+}
+\Proof{\rimplyl 证明}{
+    \par 设每个 $T\restrict{V_{k}}$ 在基 $B_{k}$ 下的矩阵 $\bm T_{k}$ 均为对角矩阵, 则我们可以\link{线性空间}[子空间]{直和的基}(将各$B_{k}$合并)为 $V$ 的基 $B$ , 显然 $T$ 在基 $B$ 下的矩阵
+    \begin{align*}
+        \bm T=\sqmatrix{ccc}{
+            \bm T_{1} \* \* \\[-2mm]
+            \* \ddots \* \\[-2mm]
+            \* \* \bm T_{n}
+        }
+    \end{align*}
+    仍为对角矩阵.\ProofEndT
+}
+
+\newpage

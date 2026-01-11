@@ -1,0 +1,27 @@
+
+% 2025 Simple·System
+
+% ./Section/有限维线性空间/特征多项式/定义
+
+\Convention{subcpt}{
+    \serial{•} 设 $\dim V=n$ ;
+    \serial{•} 设 $T\in\mathcal{L}\braI{V}$ .
+}
+
+\par 接下来我们给出特征多项式的定义——它使得我们能在\link{有限维线性空间}{有限维线性空间}中更好地考察特征值的性质.
+
+\Definition{特征多项式}{
+    .
+}
+
+\Proof{证明（唯一性）}{
+    \par 设 $\bm A$ 和 $\bm B$ 分别是 $T$ 在不同基下的矩阵, 则存在可逆阵 $\bm P$ 使得 $\bm B=\bm P^{-1}\bm A\bm P$ . 因此
+    \begin{align*}
+        \det\braI{\lambda\bm I-\bm B}&=\det\braI{\lambda\bm I-\bm P^{-1}\bm A\bm P}\\[-1mm]
+        &=\det\braI{\bm P^{-1}\braI{\lambda\bm I-\bm A}\bm P}\\[-1mm]
+        &=\det\bm P^{-1}\det\braI{\lambda\bm I-\bm A}\det\bm P\\[-1mm]
+        &=\det\braI{\lambda\bm I-\bm A}\ .\ProofEndF
+    \end{align*}
+}
+
+\newpage

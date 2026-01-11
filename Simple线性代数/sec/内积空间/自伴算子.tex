@@ -1,0 +1,85 @@
+
+% 2025 Simple·System
+
+% ./Section/内积空间/自伴算子
+
+\Definition{自伴算子}{
+    称 $T\in\mathcal{L}\braI{V}$ 是自伴算子, 当且仅当存在 $T$ 的伴随映射且 $T=T^{*}$ .
+}
+
+\vspace{-4pt}
+
+\Corollary{自伴算子的矩阵}{
+    任何自伴算子在规范正交基下的矩阵都是Hermite矩阵.
+}
+
+\vspace{-4pt}
+
+\Theorem{复合自伴算子}{
+    设 $S\and T\in\mathcal{L}\braI{V}$ 是自伴算子, 则 $ST$ 是自伴算子当且仅当 $S$ 与 $T$ 可交换.
+}
+\Proof{证明}{
+    \par 由 $\braI{ST}^{*}=T^{*}S^{*}=TS$ 即得上述命题成立.\ProofEndT
+}
+
+\par 复数 $z$ 是实数, 当且仅当 $z=\overline{z}$ , 这启发我们可以将伴随映射和自伴算子类比为复共轭和实数, 关于自伴算子的许多重要性质将体现这一点.
+
+\Theorem{自伴算子的特征值}{
+    任何自伴算子的特征值都是实数.
+}
+\Proof{证明}{
+    \par 设 $\lambda$ 是自伴算子 $T$ 的特征值, 那么
+    \begin{align*}
+        \lambda\norm{\bm v}^{2}=\braV{\lambda\bm v\and\bm v}=\braV{T\bm v\and\bm v}=\braV{\bm v\and T\bm v}=\braV{\bm v\and\lambda\bm v}=\overline{\lambda}\norm{\bm v}^{2}\ ,
+    \end{align*}
+    于是 $\lambda\in\bfR$ .\ProofEndT
+}
+
+\Theorem{自伴算子的最小多项式分裂}{
+    任何自伴算子的最小多项式都分裂.
+}
+\Proof{证明}{
+    \par 鉴于\link{}{}(酉空间中最小多项式分裂), 因此我们只需考虑Euclid空间的情形即可.
+    \par 设 $V$ 是Euclid空间且 $T\in\mathcal{L}\braI{V}$ , 假设 $T$ 的最小多项式 $\mu$ 在 $\bfR$ 上不分裂, 则我们可以将其分解为
+    \begin{align*}
+        \mu\braI{x}=\prod_{k=1}^{n}\braI{x-\lambda_{k}}\prod_{k=1}^{m}\braI{x^{2}+b_{k}x+c_{k}}\ ,
+    \end{align*}
+    其中 $m\geqslant 1$ 并且 $b_{k}^{2}<4c_{k}$ 对一切正整数 $k\leqslant m$ 成立.
+    \par 对于任意给定的非零向量 $\bm v\in V$ , 根据\link{内积空间}{Cauchy—Schwarz不等式}有
+    \begin{align*}
+        \braV{\!\braI{T^{2}+b_{1}T+c_{1}\bm I}\bm v\and\bm v}&=\braV{T^{2}\bm v\and\bm v}+b_{1}\braV{T\bm v\and\bm v}+c_{1}\braV{\bm v\and\bm v}\\[-2mm]
+        &=\norm{T\bm v}^{2}+b_{1}\braV{T\bm v\and\bm v}+c_{1}\norm{\bm v}^{2}\\[-2mm]
+        &\geqslant\norm{T\bm v}^{2}-\braIV{b_{1}}\norm{T\bm v}\norm{\bm v}+c_{1}\norm{\bm v}^{2}\\[-1mm]
+        &=\braI{\!\norm{T\bm v}-\frac{\braIV{b_{1}}\norm{\bm v}}{2}}^{2}+\braI{c_{1}-\frac{b_{1}^{2}}{4}}\norm{\bm v}^{2}\\[-1mm]
+        &>0\ ,
+    \end{align*}
+    即 $\braI{T^{2}+b_{1}T+c_{1}\bm I}\bm v\ne\bm 0$ , 因此 $T^{2}+b_{1}T+c_{1}\bm I$ 是单射, 进而是可逆的. 我们令
+    \begin{align*}
+        \mu'\braI{x}=\braI{x^{2}+b_{1}x+c_{1}}^{-1}\mu\braI{x}\ ,
+    \end{align*}
+    此时有 $\mu'T=\bm 0$ 但 $\deg\mu'<\deg\mu$ , 这与 $\mu$ 是最小多项式矛盾, 所以 $\mu$ 在 $\bfR$ 上分裂.\ProofEndT
+}
+
+\Theorem{实谱定理}{
+    设 $V$ 是有限维Euclid空间且 $T\in\mathcal{L}\braI{V}$ , 则 $T$ 是自伴算子当且仅当 $T$ 在某个规范正交基下的矩阵是对角矩阵.
+}
+\Proof{$\implies$证明}{
+    \par 由于 $T$ 的最小多项式分裂, 我们知道 $T$ 在某个基 $B$ 下有Jordan标准型:
+    \begin{align*}
+        \bm A=\braII{\begin{array}{ccccc}
+            \bm J_{1} \* \* \* \* \bm O \\[-2mm]
+            \* \ddots \* \* \* \\[-2mm]
+            \* \* \bm J_{k} \* \* \\[-2mm]
+            \* \* \* \ddots \* \\[-2mm]
+            \bm O \* \* \* \* \bm J_{m}
+        \end{array}}\ ,
+    \end{align*}
+    对其应用\link{内积空间}[正交性]{上三角矩阵的规范正交化}可知 $T$ 在某个基 $B'$ 下有上三角矩阵 $\bm A'$ , 又因为 $T$ 是自伴算子, 所以 $\bm A'=\braI{\bm A'}^{\rmT}$ , 这就表明 $\bm A'$ 是对角矩阵.\ProofEndT
+}
+\Proof{$\impliedby$证明}{
+    \par 记 $\bm A$ 为 $T$ 在某个规范正交基下的矩阵, 则作为\link{内积空间}[伴随映射]{伴随映射的矩阵}, $T^{*}$ 在该基下的矩阵为 $\bm A^{\rmT}$ , 若 $\bm A$ 是对角矩阵, 则 $\bm A=\bm A^{\rmT}$ , 于是 $T=T^{*}$ .\ProofEndT
+}
+
+\par 事实上, 如果 $T$ 是自伴算子, 那么无论 $V$ 是Euclid空间还是酉空间, 其都可以在某个规范正交基下被表示为实对角矩阵, 我们将在\seclink{内积空间}{正规算子}中进一步说明这一点, 并给出酉空间中算子可规范正交对角化的充要条件.
+
+\newpage

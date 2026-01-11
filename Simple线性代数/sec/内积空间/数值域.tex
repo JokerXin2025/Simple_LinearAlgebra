@@ -1,0 +1,80 @@
+
+% 2025 Simple·System
+
+% ./Section/内积空间/数值域
+
+\Convention{sec}{
+    \serial{•} 设 $T\in\mathcal{L}\braI{V}$ .
+}
+
+\vspace{-4pt}
+
+\Definition{数值域}{
+    线性变换 $T$ 的数值域定义为
+    \begin{align*}
+        W\braI{T}:=\braIII{\braV{T\bm v\and\bm v}:\bm v\in V\and\norm{\bm v}=1}\ .
+    \end{align*}
+}
+
+\par 一般来说, $W\braI{T}$ 并不意味着 $T=\bm 0_{V}$ 成立, 但在两种情形下这一点确实成立.
+
+\Theorem{数值域零定理}{
+    若 $W\braI{T}=\braIII{0}$ 且有如下条件之一成立, 则 $T=\bm 0_{V}$ .
+    \serial{1.}$V$ 是酉空间.
+    \serial{2.}$T$ 是自伴算子.
+}
+\Proof{\sentence{1}证明}{
+    \par 对任意 $\bm v\in V$ , 由\link{内积空间}{算子极化恒等式（酉空间）}(算子极化恒等式)有
+    \begin{small}\begin{align*}
+        \braV{T\bm v\and T\bm v}&=\frac{\braV{T\bm v'_{1}\and\bm v'_{1}}-\braV{T\bm v'_{2}\and\bm v'_{2}}}{4}+\frac{\braV{T\bm v'_{3}\and\bm v'_{3}}-\braV{T\bm v'_{4}\and\bm v'_{4}}}{4}\rmi\\[1mm]
+        &=\frac{\norm{\bm v'_{1}}^{2}\braV{T\bm v''_{1}\and\bm v''_{1}}-\norm{\bm v'_{2}}^{2}\braV{T\bm v''_{2}\and\bm v''_{2}}}{4}+\frac{\norm{\bm v'_{3}}^{2}\braV{T\bm v''_{3}\and\bm v''_{3}}-\norm{\bm v'_{4}}^{2}\braV{T\bm v''_{4}\and\bm v''_{4}}}{4}\rmi\ ,
+    \end{align*}\end{small}
+    其中
+    \begin{align*}
+        \braI{\bm v'_{1}\and\bm v'_{2}\and\bm v'_{3}\and\bm v'_{4}}=\braI{\bm v+T\bm v\and\bm v-T\bm v\and\bm v+\rmi T\bm v\and\bm v-\rmi T\bm v}\ ,\\[-15mm]
+    \end{align*}
+    \begin{align*}
+        \braI{\bm v''_{1}\and\bm v''_{2}\and\bm v''_{3}\and\bm v''_{4}}=\braI{\frac{\bm v'_{1}}{\norm{\bm v'_{1}}}\and\frac{\bm v'_{2}}{\norm{\bm v'_{2}}}\and\frac{\bm v'_{3}}{\norm{\bm v'_{3}}}\and\frac{\bm v'_{4}}{\norm{\bm v'_{4}}}}\ ,
+    \end{align*}
+    注意到每个 $\braV{T\bm v''_{k}\and\bm v''_{k}}$ 都是 $W\braI{T}$ 中的元素, 因此 $\norm{T\bm v}=0$ , 即 $T\bm v=\bm 0$ .\ProofEndT
+}
+\Proof{\sentence{2}证明}{
+    \par 我们已经证明了 $V$ 是酉空间时的情形, 现在仅需考虑 $V$ 是Euclid空间时的情形即可. 由 $T$ 是自伴算子可知对任意 $\bm v_{1}\and\bm v_{2}\in V$ 有
+    \begin{align*}
+        \braV{T\bm v_{1}\and\bm v_{2}}=\braV{\bm v_{1}\and T^{*}\bm v_{2}}=\braV{\bm v_{1}\and T\bm v_{2}}=\braV{T\bm v_{2}\and\bm v_{1}}\ ,
+    \end{align*}
+    因此我们可以给出自伴算子在Euclid空间中的极化恒等式
+    \begin{align*}
+        \braV{T\bm v_{1}\and\bm v_{2}}=\frac{\braV{T\braI{\bm v_{1}+\bm v_{2}}\and\bm v_{1}+\bm v_{2}}-\braV{T\braI{\bm v_{1}-\bm v_{2}}\and\bm v_{1}-\bm v_{2}}}{4}\ ,
+    \end{align*}
+    代入 $\braI{\bm v_{1}\and\bm v_{2}}=\braI{\bm v\and T\bm v}$ 即得
+    \begin{align*}
+        \braV{T\bm v\and T\bm v}&=\frac{\braV{T\braI{\bm v+T\bm v}\and\bm v+T\bm v}-\braV{T\braI{\bm v-T\bm v}\and\bm v-T\bm v}}{4}\\[1mm]
+        &=\frac{\norm{\bm v+T\bm v}^{2}\braV{T\bm v'_{1}\and\bm v'_{1}}-\norm{\bm v-T\bm v}^{2}\braV{T\bm v'_{2}\and\bm v'_{2}}}{4}\ ,
+    \end{align*}
+    其中
+    \begin{align*}
+        \braI{\bm v'_{1}\and\bm v'_{2}}=\braI{\frac{\bm v+T\bm v}{\norm{\bm v+T\bm v}}\and\frac{\bm v-T\bm v}{\norm{\bm v-T\bm v}}}\ ,
+    \end{align*}
+    注意到每个 $\braV{T\bm v'_{k}\and\bm v'_{k}}$ 都是 $W\braI{T}$ 中的元素, 因此 $\norm{T\bm v}=0$ , 即 $T\bm v=\bm 0$ .\ProofEndT
+}
+
+\Theorem{自伴算子的数值域包含于R}(自伴算子的数值域\nogap $\subseteq$\nogap $\bfR$){
+    设 $V$ 是酉空间, 则 $T$ 是自伴算子当且仅当 $W\braI{T}\subseteq\bfR$ .
+}
+\Proof{$\implies$证明}{
+    \par 对任意 $\bm v\in V$ 有
+    \begin{align*}
+        \braV{T\bm v\and\bm v}=\braV{T^{*}\bm v\and\bm v}=\overline{\braV{\bm v\and T^{*}\bm v}}=\overline{\braV{T\bm v\and\bm v}}\ ,
+    \end{align*}
+    于是 $\braV{T\bm v\and\bm v}\in\bfR$ , 这就证明了 $W\braI{T}\subseteq\bfR$ .\ProofEndT
+}
+\Proof{$\impliedby$证明}{
+    \par 对任意满足 $\norm{\bm v}=1$ 的 $\bm v\in V$ 有
+    \begin{align*}
+        \braV{\!\braI{T-T^{*}}\bm v\and\bm v}=\braV{T\bm v\and\bm v}-\braV{T^{*}\bm v\and\bm v}=\braV{T\bm v\and\bm v}-\overline{\braV{T\bm v\and\bm v}}=0\ ,
+    \end{align*}
+    于是 $W\braI{T-T^{*}}=\braIII{0}$ , 由\link{内积空间}{数值域零定理}即得 $T=T^{*}$ .\ProofEndT
+}
+
+\newpage

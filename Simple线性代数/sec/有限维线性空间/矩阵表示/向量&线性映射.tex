@@ -1,0 +1,155 @@
+
+% 2025 Simple·System
+
+% ./Section/有限维线性空间/矩阵表示/向量&线性映射
+
+\Convention{sec}{
+    \serial{•}设 $B_{U}$ 和 $B_{V}$ 分别是 $U$ 和 $V$ 的基.
+}
+
+\vspace{-4pt}
+
+\Definition{向量矩阵}{
+    设 $V$ 是以 $B=\braI{\bm v_{1}\and\cdots\and\bm v_{m}}$ 为基的线性空间且 $\bm v=\sum_{k=1}^{m}a_{k}\bm v_{k}$ , 我们定义 $\bm v$ 在 $B_{V}$ 下的矩阵为 $m\times1$ 型矩阵
+    \begin{align*}
+        \mathcal{M}_{B_{V}}\braI{\bm v}\ :\ \braI{i\and1}\mapsto a_{i}\ ,
+    \end{align*}
+    即
+    \begin{align*}
+        \mathcal{M}_{B}\braI{\bm v}:=\matrix{c}{
+            a_{1} \\[-1mm]
+            \vdots \\[-1mm]
+            a_{m}
+        }\ .
+    \end{align*}
+}
+
+\par 下面我们将展示定义矩阵的意义, 其可以高效地展示任何线性映射的作用效果.
+
+\Definition{线性映射矩阵}{
+    设 $U$ 和 $V$ 是分别以 $B_{U}=\braI{\bm u_{1}\and\cdots\and\bm u_{n}}$ 和 $B_{V}=\braI{\bm v_{1}\and\cdots\and\bm v_{m}}$ 为基的线性空间, 并且线性映射 $T\in\mathcal{L}\braI{U\and V}$ 定义为
+    \begin{align*}
+        T\ :\ \sum_{k=1}^{n}a_{k}\bm u_{k}\mapsto\sum_{k=1}^{n}a_{k}\bm w_{k}\ ,
+    \end{align*}
+    其中 $\bm w_{k}=a_{1}^{(k)}\bm v_{1}+\cdots+a_{m}^{(k)}\bm v_{m}$ , 我们定义 $T$ 在 $B_{U}$ 和 $B_{V}$ 下的矩阵为 $m\times n$ 型矩阵
+    \begin{align*}
+        \mathcal{M}_{B_{U},B_{V}}\braI{T}\ :\ \braI{i\and j}\mapsto a_{i}^{(j)}\ ,
+    \end{align*}
+    即
+    \begin{align*}
+        \mathcal{M}_{B_{U},B_{V}}\braI{T}:=\matrix{ccc}{
+            a_{1}^{(1)} \* \cdots \* a_{1}^{(n)} \\[-1mm]
+            \vdots \* \ddots \* \vdots \\[-1mm]
+            a_{m}^{(1)} \* \cdots \* a_{m}^{(n)}
+        }\ .
+    \end{align*}
+}
+
+\par 当 $U=V$ 且 $B_{U}=B_{V}$ 时, 我们简称其为 $T$ 在 $B_{U}$ 下的矩阵并记作 $\mathcal{M}_{B_{U}}T$ .
+
+\par 考察向量矩阵的第 $j$ 列 $\bm A_{:j}$ , 其每个元素 $A_{i,j}$ 表示 $T\bm u_{j}$ 作为 $\bm v_{1}\and\cdots\and\bm v_{m}$ 的线性组合的第 $i$ 个系数, 即
+\begin{align*}
+    T\bm u_{j}=\sum_{i=1}^{m}A_{i,j}\bm v_{i}\ ,
+\end{align*}
+从而可以将矩阵 $\mathcal{M}T$ 的每一列看作 $U$ 的各个基在 $T$ 作用下的效果. 另一方面, 对于每个 $\bm u\in U$ , 我们知道 $\mathcal{M}\bm u$ 记录了其关于 $U$ 的各个基的系数. 因此将 $\mathcal{M}\bm u$ 的各个元素与 $\mathcal{M}T$ 每一列相乘, 并将这些效果相加, 即可得到 $\bm u$ 在 $T$ 作用下的效果. 这就是线性组合在矩阵层面的体现.
+
+\par 这启发我们将该向量矩阵横置, 并将其放在作用于该向量的线性映射矩阵的上方:
+\begin{small}\begin{align*}
+    \bm u=\sum_{k=1}^{n}a_{k}\bm u_{k}
+    \ \longrightarrow\ 
+    \mathcal{M}\bm u=\braI{\ \ \begin{array}{ccc}
+        \ a_{1} \ &\  \cdots \ &\  a_{n}\ 
+    \end{array}\ \ }&\\[1mm]
+    T\bm u=\sum_{p=1}^{m}\braI{\sum_{k=1}^{n}a_{k}A_{p,k}}\bm v_{p}
+    \ \longleftarrow\ 
+    \mathcal{M}\braI{T\bm u}=\matrix{ccc}{
+        \sum_{p=1}^{n}a_{p}A_{1,p} \\[-1mm]
+        \vdots \\[-1mm]
+        \sum_{p=1}^{n}a_{p}A_{m,p}
+    }
+    \ \longleftarrow\ 
+    \matrix{ccc}{
+        A_{1,1} \* \cdots \* A_{1,n} \\[-1mm]
+        \vdots \* \ddots \* \vdots \\[-1mm]
+        A_{m,1} \* \cdots \* A_{m,n}
+    }&\ ,
+\end{align*}\end{small}
+
+\par 另一方面, 根据之前对矩阵列的考察我们知道
+\begin{align*}
+    T\bm u=T\sum_{k=1}^{n}a_{k}\bm u_{k}=\sum_{k=1}^{n}a_{k}T\bm u_{k}=\sum_{k=1}^{n}\sum_{p=1}^{m}a_{k}A_{p,k}\bm v_{p}\ ,
+\end{align*}
+这与上面的结果是一致的. 这表明线性映射等效于某种矩阵运算.
+
+\par 我们已经知道矩阵乘法本质上等同于线性映射的复合, 事实上, 下面的结论进一步表明矩阵乘法本质上还等同于线性映射的作用.
+
+\Theorem{矩阵与线性映射的等效性}{
+    对任意的线性空间 $U_{0}\and U_{1}\and\cdots\and U_{n}$ 和线性映射
+    \begin{align*}
+        (T_{k})_{k=1}^{n}\in\prod_{k=1}^{n}\mathcal{L}\braI{U_{k-1}\and U_{k}}\ ,
+    \end{align*}
+    都有
+    \begin{align*}
+        \mathcal{M}\braI{T_{n}\cdots T_{1}\bm u}=\braI{\prod_{k=1}^{n}\mathcal{M}T_{k}}\mathcal{M}\bm u\ .
+    \end{align*}
+}
+\Proof{证明}{
+    \par 作为线性映射的一种高效表示方式, 我们希望定义一种矩阵之间的乘法运算, 使得其能够对应于线性映射的复合. 设 $U\and V\and W$ 是分别以
+    \begin{align*}
+        \braI{\bm u_{1}\and\cdots\and\bm u_{n}}\ ,\ \braI{\bm v_{1}\and\cdots\and\bm v_{m}}\ ,\ \braI{\bm w_{1}\and\cdots\and\bm w_{l}}
+    \end{align*}
+    为基的线性空间, 给定线性映射 $T:U\to V$ , $S:V\to W$ , 记 $\bm B=\mathcal{M}T$ , $\bm A=\mathcal{M}S$ , 则对每个 $\bm u\in U$ 我们有
+    \begin{align*}
+        S\braI{T\bm u}&=S\braI{\sum_{p=1}^{m}\braI{\sum_{k=1}^{n}a_{k}B_{p,k}}\bm v_{p}}\\[1mm]
+        &=\sum_{q=1}^{l}\braI{\sum_{p=1}^{m}\braI{\sum_{k=1}^{n}a_{k}B_{p,k}}A_{q,p}}\bm w_{q}\\[1mm]
+        &=\sum_{q=1}^{l}\braI{\sum_{k=1}^{n}\braI{\sum_{p=1}^{m}A_{q,p}B_{p,k}}a_{k}}\bm w_{q}\ ,
+    \end{align*}
+    \par 由矩阵乘法的推导我们已经知道
+    \begin{align*}
+        \mathcal{M}\braI{T_{n}\cdots T_{1}}=\prod_{k=1}^{n}\mathcal{M}T_{k}\ ,
+    \end{align*}
+    下面我们证明对任何基于线性空间 $U\and V$ 的线性映射 $T:U\to V$ 和 $\bm u\in U$ 都有
+    \begin{align*}
+        \mathcal{M}\braI{T\bm u}=\mathcal{M}T\mathcal{M}\bm u\ .
+    \end{align*}
+    \par 设 $\bm u=\sum_{k=1}^{n}a_{k}\bm u_{k}$ , 根据\link{矩阵}{矩阵乘法}的定义, 我们有
+    \begin{align*}
+        \mathcal{M}T\mathcal{M}\bm u=\matrix{c}{
+            \sum_{k=1}^{n}A_{1,k}a_{k} \\
+            \vdots \\
+            \sum_{k=1}^{n}A_{m,k}a_{k}
+        }\ ,
+    \end{align*}
+    其中 $m=\dim U_{1}$ , 此即章节-向量与线性映射中给出的 $\mathcal{M}\braI{T\bm u}$ .\ProofEndT
+}
+
+\par 进而我们验证了\link{矩阵}{矩阵乘法}即为章节-向量与线性映射中等效于线性映射的矩阵运算, 这是因为矩阵 $\bm A\bm B$ 的每一列对应的向量实质上就是以 $\bm B$ 的每一列为线性系数, 由 $\bm A$ 各列所对应的向量构成的线性组合, 而在章节-向量与线性映射中预示的运算正是 $\bm B$ 只有一列时的退化情形. 这样的观点称作矩阵乘法的列观点.
+
+\par 另外, 我们容易验任何向量或线性映射的相等都等价于其矩阵的相等, 也即向量/线性映射与矩阵有一一对应的关系.
+
+\Corollary{M是双射}($\mathcal{M}_{B_{V}}$和$\mathcal{M}_{B_{U},B_{V}}$是双射){
+    %$\FORALLII{\bm v_{1}\and\bm v_{2}}{V}{T_{1}\and T_{2}}{\mathcal{L}\braI{U\and V}}$
+    \serial{1.}$\bm v_{1}=\bm v_{2}$ 当且仅当 $\mathcal{M}_{B_{V}}\braI{\bm v_{1}}=\mathcal{M}_{B_{V}}\braI{\bm v_{2}}$ .
+    \serial{2.}$T_{1}=T_{2}$ 当且仅当 $\mathcal{M}_{B_{U},B_{V}}\braI{T_{1}}=\mathcal{M}_{B_{U},B_{V}}\braI{T_{2}}$ .
+}
+
+\par 最后, $\mathcal{M}$ 本身即是线性的, 从而向量/线性映射与矩阵在加法和数乘运算上具有一致性.
+
+\Corollary{M是线性映射}($\mathcal{M}_{B_{V}}$和$\mathcal{M}_{B_{U},B_{V}}$是线性映射){
+    \serial{1.} $\mathcal{M}_{B_{V}}\braI{\bm v_{1}+\bm v_{2}}=\mathcal{M}_{B_{V}}\braI{\bm v_{1}}+\mathcal{M}_{B_{V}}\braI{\bm v_{2}}$ 对一切 $\bm v_{1}\and\bm v_{2}\in V$ 成立.
+    \serial{2.} $\mathcal{M}_{B_{V}}\braI{\lambda\bm v}=\lambda\cdot\mathcal{M}_{B_{V}}\braI{\bm v}$ 对一切 $\bm v\in V$ 和 $\lambda\in\bfF$ 成立.
+    \serial{3.} $\mathcal{M}_{B_{U},B_{V}}\braI{T_{1}+T_{2}}=\mathcal{M}_{B_{U},B_{V}}\braI{T_{1}}+\mathcal{M}_{B_{U},B_{V}}\braI{T_{2}}$ 对一切 $T_{1}\and T_{2}\in\mathcal{L}\braI{U\and V}$ 成立.
+    \serial{4.} $\mathcal{M}_{B_{U},B_{V}}\braI{\lambda T}=\lambda\cdot\mathcal{M}_{B_{U},B_{V}}\braI{T}$ 对一切 $T\in\mathcal{L}_{B_{U},B_{V}}\braI{U\and V}$ 和 $\lambda\in\bfF$ 成立.
+}
+
+\par 若要采用这种观点, 则我们需要修改向量矩阵的定义, 使之成为 $1\times n$ 型矩阵, 但这样会使得上面的等效性定理变成
+\begin{align*}
+    \mathcal{M}\braI{T\bm u}=\mathcal{M}\bm u\mathcal{M}T\ ,
+\end{align*}
+这也解释了我们如此定义向量矩阵的原因.
+
+\Corollary{同型矩阵构成线性空间}{
+    域 $\bfF$ 的 $m\times n$ 型矩阵空间是 $mn$ 维线性空间.
+}
+
+\newpage

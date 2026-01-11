@@ -1,0 +1,66 @@
+
+% 2025 Z·MathLib
+
+% Article/线性空间/向量值映射
+
+\par 现在我们来考虑{\it 向量值映射}, 即以线性空间为陪域的映射.
+
+\Definition{向量值映射的运算}{
+    设 $S$ 是非空集合, $\braI{V\and\bfF\and+_{V}\and\cdot_{V}}$ 是线性空间, 我们在映射集 $V^{S}$ 上定义运算 $+:V^{S}\times V^{S}\to V^{S}$ 和 $\cdot:\bfF\times V^{S}\to V^{S}$ 为
+    \begin{align*}
+        \Forall{f\and g}{V^{S}}
+        f+g\ :\ x\mapsto fx+_{V}gx\ ,\\[-16mm]
+    \end{align*}
+    \begin{align*}
+        \ForallII{\lambda}{\bfF}{f}{V^{S}}
+        \lambda\cdot f\ :\ x\mapsto\lambda\cdot_{V}fx\ .
+    \end{align*}
+}
+
+\Theorem{向量值映射构成线性空间}{
+    对任意非空集合 $S$ 和线性空间 $V$ , $V^{S}$ 是线性空间.
+}{
+\Proof{证明}{
+    \par 设 $\bm u$ 为线性空间 $V$ 的加法幺元, 则显然 $\bm u':x\mapsto\bm u$ 为 $V^{S}$ 的加法幺元; $V$ 的乘法幺元即 $V^{S}$ 的乘法幺元; 对每个 $f\in V^{S}$ , $-1\cdot f$ 是 $f$ 的加法逆元; 其余五则运算定律显然成立, 因为它们对每个 $V$ 中的元素都成立.\ProofEndT
+}
+}
+
+\Theorem{向量值映射空间的维数}{
+    设 $S$ 为非空集合,
+    \serial{1.} 若 $S$ 为有限集且 $V$ 为 $n$ 维空间, 则 $\dim V^{S}=n\braIV{S}$ ;
+    \serial{2.} 若 $S$ 为无限集, 则 $\dim V^{S}=+\infty$ ;
+    \serial{3.} 若 $V$ 为无限维空间, 则 $\dim V^{S}=+\infty$ .
+}{
+\Proof{1.证明}{
+    \par 当 $S$ 为有限集且 $V$ 为 $n$ 维线性空间时, 不妨记 $S=\braI{\cdots\and x_{|S|}}$ , 对每个正整数 $k\leqslant\braIV{S}$ , 显然有 $V^{\{x_{k}\}}\cong V$ , 依\link{线性空间}{同构空间的维数}相同有 $\dim V^{\{x_{k}\}}=n$ . 另一方面, 我们定义 $F:\prod_{k=1}^{|S|}V^{\{x_{k}\}}\to V^{S}$ 为
+    \begin{align*}
+        \Forall{(f_{k})_{k=1}^{|S|}}{\prod_{k=1}^{|S|}V^{\{x_{k}\}}}
+        F\braI{(f_{k})_{k=1}^{|S|}}\ :\ x_{k}\mapsto f_{k}x_{k}\ ,
+    \end{align*}
+    即 $F$ 将分别为每个 $x_{k}$ 分配向量的映射组 $(f_{k})_{k=1}^{|S|}$ 映射成为整个 $S$ 分配向量的映射, 容易验证 $F$ 是一个双射, 这表明
+    \begin{align*}
+        V^{S}\cong\prod_{k=1}^{|S|}V^{\{x_{k}\}}\ ,
+    \end{align*}
+    从而根据\link{维数}{维数公式I}知
+    \begin{align*}
+        \dim V^{S}=\sum_{k=1}^{|s|}\dim V^{\{x_{k}\}}=n\braIV{S}\ .\ProofEndF
+    \end{align*}
+}
+\Proof{2.证明}{
+    \par 当 $S$ 为有限集且 $V$ 为 $n$ 维线性空间时, 不妨记 $S=\braI{\cdots\and x_{|S|}}$ , 对每个正整数 $k\leqslant\braIV{S}$ , 显然有 $V^{\{x_{k}\}}\cong V$ , 依\link{线性空间}{同构空间的维数}相同有 $\dim V^{\{x_{k}\}}=n$ . 另一方面, 我们定义 $F:\prod_{k=1}^{|S|}V^{\{x_{k}\}}\to V^{S}$ 为
+    \begin{align*}
+        \Forall{(f_{k})_{k=1}^{|S|}}{\prod_{k=1}^{|S|}V^{\{x_{k}\}}}
+        F\braI{(f_{k})_{k=1}^{|S|}}\ :\ x_{k}\mapsto f_{k}x_{k}\ ,
+    \end{align*}
+    即 $F$ 将分别为每个 $x_{k}$ 分配向量的映射组 $(f_{k})_{k=1}^{|S|}$ 映射成为整个 $S$ 分配向量的映射, 容易验证 $F$ 是一个双射, 这表明
+    \begin{align*}
+        V^{S}\cong\prod_{k=1}^{|S|}V^{\{x_{k}\}}\ ,
+    \end{align*}
+    从而根据\link{维数}{维数公式I}知
+    \begin{align*}
+        \dim V^{S}=\sum_{k=1}^{|s|}\dim V^{\{x_{k}\}}=n\braIV{S}\ .\ProofEndF
+    \end{align*}
+}
+}
+
+\newpage

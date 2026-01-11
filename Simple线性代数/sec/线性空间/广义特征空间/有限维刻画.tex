@@ -1,0 +1,31 @@
+
+% 2025 Z·MathLib
+
+% Article/线性空间/广义特征空间/有限维刻画
+
+\Proof{证明}{
+
+  先证 $\ker(T-\lambda I)^\nu \subseteq E_T^*(\lambda)$：对任意 $v \in \ker(T-\lambda I)^\nu$，由定义 $(T-\lambda I)^\nu v = 0$，故 $v \in E_T^*(\lambda)$。
+
+  再证 $E_T^*(\lambda) \subseteq \ker(T-\lambda I)^\nu$：设 $v \in E_T^*(\lambda)$，则存在正整数 $k$ 使得 $(T-\lambda I)^k v = 0$。考虑多项式 $f(x) = (x-\lambda)^k$ 和 $m(x) = (x-\lambda)^\nu q(x)$。由于 $q(\lambda) \neq 0$，$q(x)$ 与 $(x-\lambda)^k$ 互质，故存在多项式 $a(x), b(x)$ 使得：
+  \[
+  a(x)q(x) + b(x)(x-\lambda)^k = 1.
+  \]
+  代入 $x = T$ 得：
+  \[
+  a(T)q(T) + b(T)(T-\lambda I)^k = I.
+  \]
+  于是：
+  \[
+  v = a(T)q(T)v + b(T)(T-\lambda I)^k v = a(T)q(T)v.
+  \]
+  现在计算：
+  \[
+  (T-\lambda I)^\nu v = (T-\lambda I)^\nu a(T)q(T)v = a(T)q(T)(T-\lambda I)^\nu v.
+  \]
+  但由 $m(T) = 0$ 得 $(T-\lambda I)^\nu q(T) = 0$，故 $(T-\lambda I)^\nu q(T)v = 0$，从而 $(T-\lambda I)^\nu v = 0$。因此 $v \in \ker(T-\lambda I)^\nu$。
+
+  综上，$E_T^*(\lambda) = \ker(T-\lambda I)^\nu$。
+}
+
+\newpage

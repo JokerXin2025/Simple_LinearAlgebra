@@ -1,0 +1,90 @@
+
+% 2025 Simple·System
+
+% ./Section/线性空间/复化
+
+\Definition{线性空间}{
+    设 $\braI{\bfF\and+_{F}\and\times_{F}}$ 是一个域, $V$ 是一个集合, 则 $\braI{V\and\braI{\bfF\and+_{F}\and\times_{F}}\and+\and\cdot}$ 是域 $\bfF$ 上的线性空间, 当且仅当其加法 $+:V\times V\to V$ 和数乘 $\cdot:\bfF\times V\to V$ 满足如下性质:
+    \serial{1.}加法右幺元: 存在加法右幺元 $\bm 0\in V$ 使得 $\bm v+\bm 0=\bm v$ 对一切 $\bm v\in V$ 成立.
+    \serial{2.}数乘单位: 存在乘法左幺元 $1\in\bfF$ 使得 $1\cdot\bm v=\bm v$ 对一切 $\bm v\in V$ 成立.
+    \serial{3.}加法右逆元: 对任意 $\bm v\in V$ 都存在加法右逆元 $-\bm v\in V$ 使得 $\bm v+\braI{-\bm v}=\bm 0$ , 其中 $\bm 0$ 是 $V$ 的加法右幺元.
+    \serial{4.}加法结合律: $\braI{\bm u+\bm v}+\bm w=\bm u+\braI{\bm v+\bm w}$ 对一切 $\bm u\and\bm v\and\bm w\in V$ 成立.
+    \serial{5.}数乘结合律: $\braI{a\times_{F}b}\cdot\bm v=a\cdot\braI{b\cdot\bm v}$ 对一切 $a\and b\in\bfF$ 和 $\bm v\in V$ 成立.
+    \serial{6.}分配律{\rm I} : $a\cdot\braI{\bm u+\bm v}=a\cdot\bm u+a\cdot\bm v$ 对一切 $a\in\bfF$ 和 $\bm u\and\bm v\in V$ 成立.
+    \serial{7.}分配律{\rm II} : $\braI{a+_{F}b}\cdot\bm v=a\cdot\bm v+b\cdot\bm v$ 对一切 $a\and b\in\bfF$ 和 $\bm v\in V$ 成立.
+}
+
+\par 我们一般直接用集合的符号来表示其所对应的线性空间, 并且可以省略数乘运算符 $\cdot$ .
+
+\par 线性空间中的元素称为{\it 向量}并用粗体字母表示, 其所在域 $\bfF$ 中的元素为{\it 标量}. 由 $V$ 中向量组成的集合和族分别简称为 $V$ 中的{\it 向量集}和{\it 向量组}, 从向量组中删去某向量后得到的新向量组称为原向量组的{\it 子组}.
+
+\par $\bfF$ 为 $\bfR$ 和 $\bfC$ 时对应的线性空间分别称为{\it 实线性空间}和{\it 复线性空间}.
+
+\Structure{域诱导线性空间}{
+    设 $\braI{\bfF\and+\and\cdot}$ 是一个域, 则
+    \serial{1.} 对任意正整数 $n$ , $\braI{\bfF^{n}\and\braI{\bfF\and+\and\cdot}\and+\and\cdot}$ 是线性空间;
+    \serial{2.} $\braI{\bfF^{\infty}\and\braI{\bfF\and+\and\cdot}\and+\and\cdot}$ 是线性空间.
+}
+
+\Theorem{加法左幺元&加法左逆元}(加法左幺元\&加法左逆元){
+    设 $\bm 0$ 是线性空间 $V$ 的加法右幺元, 则
+    \serial{1.}$\bm 0+\bm v=\bm v$ 对一切 $\bm v\in V$ 成立;
+    \serial{2.}$\braI{-\bm v}+\bm v=\bm 0$ 对一切 $\bm v\in V$ 成立, 其中 $-\bm v$ 表示 $\bm v$ 的加法右逆元.
+}
+\Proof{证明}{
+    \par 对任意 $\bm v\in V$ 我们有
+    \begin{align*}
+        \bm0+\braI{-\braI{-\bm v}\!}=\braI{\bm v+\braI{-\bm v}\!}+\braI{-\braI{-\bm v}\!}=\bm v+\braI{\!\braI{-\bm v}+\braI{-\braI{-\bm v}\!}\!}=\bm v+\bm0=\bm v\ ,
+    \end{align*}
+    于是
+    \begin{align*}
+        \bm0+\bm v=\bm0+\braI{\bm0+\braI{-\braI{-\bm v}\!}\!}=\braI{\bm0+\bm0}+\braI{-\braI{-\bm v}\!}=\bm0+\braI{-\braI{-\bm v}\!}=\bm v\ ,\\[-16mm]
+    \end{align*}
+    \begin{align*}
+        -\bm v+\bm v=-\bm v+\braI{\bm0+\braI{-\braI{-\bm v}\!}\!}=\braI{-\bm v+\bm0}+\braI{-\braI{-\bm v}\!}=-\bm v+\braI{-\braI{-\bm v}\!}=\bm0\ ,
+    \end{align*}
+    从而 $\bm0+\bm v=\bm v$ 和 $\braI{-\bm v}+\bm v=\bm0$ 对一切 $\bm v\in V$ 成立.\ProofEndT
+}
+
+\par 根据上述结论, 我们修改加法右幺元和加法右逆元的名称为{\it 加法幺元}和{\it 加法逆元}.
+
+\Corollary{加法逆元的对合律}{
+    $\bm v=-\braI{-\bm v}$ 对一切 $\bm v\in V$ 成立.
+}
+
+\Theorem{加法幺元的唯一性}{
+    线性空间 $V$ 有唯一的加法幺元.
+}
+\Proof{证明}{
+    \par 假设 $\bm 0_{1}$ 和 $\bm 0_{2}$ 都是线性空间 $V$ 的加法幺元, 则
+    \begin{align*}
+        \bm 0_{1}=\bm 0_{1}+\bm 0_{2}=\bm 0_{2}+\bm 0_{1}=\bm 0_{2}\ .\ProofEndF
+    \end{align*}
+}
+
+\par 上述两则定理表明: 加法左幺元和加法右幺元是 $V$ 中相同的元素, 因此我们简称其为{\it 加法幺元}. 称线性空间 $\braI{V\and\bfF\and+\and\cdot}$ {\it 非零}, 当且仅当 $V$ 真包含加法幺元.
+
+\Theorem{加法逆元的唯一性}{
+    向量 $\bm v$ 有唯一的加法逆元 $-\bm v$ .
+}
+\Proof{证明}{
+    \par 假设对任意 $\bm v\in V$ , $-\bm v_{1}$ 和 $-\bm v_{2}$ 都是 $\bm v$ 的加法逆元, 则
+    \begin{align*}
+        -\bm v_{1}=-\bm v_{1}+\bm 0=-\bm v_{1}+\braI{\bm v_{1}+\braI{-\bm v_{2}}\!}=\braI{-\bm v_{1}+\bm v_{1}}+\braI{-\bm v_{2}}=\bm 0+\braI{-\bm v_{2}}=-\bm v_{2}\ .\ProofEndF
+    \end{align*}
+}
+
+\par 该定理确保了记号 $-\bm v$ 的意义是明确的, 由此我们可以在线性空间上定义{\it 减法}运算
+\begin{align*}
+    \bm v_{1}-\bm v_{2}:=\bm v_{1}+\braI{-\bm v_{2}}\ .
+\end{align*}
+记 $-_{F}$ 为域 $\bfF$ 中的减法, 则相应地 $-$ 和 $-_{F}$ 也满足\link{线性空间}{线性空间}定义中的两则分配律.
+
+\Convention{\cptlink{线性空间}中的设定}{
+    \serial{•}不产生歧义时, 令 $\bm O$ 和 $\bm I$ 表示任何零矩阵和单位矩阵.
+    \serial{•}设 $\braI{\bfF\and+\and\cdot}$ 是域, 令 $0\and 1\and-1$ 分别表示其加法幺元, 乘法幺元和乘法幺元的加法逆元.
+    \serial{•}设 $\braI{U\and\bfF\and+\and\cdot}\and\braI{V\and\bfF\and+\and\cdot}\and\braI{W\and\bfF\and+\and\cdot}$ 是域 $\bfF$ 上线性空间.
+    \serial{•}不产生歧义时, 令 $\bm 0$ 同时表示 $U\and V\and W$ 的加法幺元.
+}
+
+\newpage

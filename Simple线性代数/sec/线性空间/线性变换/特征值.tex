@@ -1,0 +1,32 @@
+
+% 2025 Simple·System
+
+% ./Section/线性空间/线性变换/特征值
+
+\Definition{特征值}{
+    设 $T\in\mathcal{L}\braI{V}$ , 则称 $\lambda\in\bfF$ 为 $T$ 的特征值, 当且仅当存在非零向量 $\bm v\in V$ 使得 $T\bm v=\lambda\bm v$ .
+}
+
+\par 需要注意, $T\bm 0=\lambda\bm 0$ 不足以说明 $\lambda$ 为 $T$ 的特征值, 否则所有 $\lambda\in\bfF$ 都是 $T$ 的特征值.
+
+\Definition{特征空间}{
+    设 $\lambda$ 是 $T$ 的特征值, 则特征值 $\lambda$ 的特征空间定义为
+    \begin{align*}
+        E\braI{\lambda}:=\ker\braI{T-\lambda\bm I_{V}}\ ,
+    \end{align*}
+    其中的非零向量称为对应于特征值 $\lambda$ 的特征向量.
+}
+
+\vspace{-4pt}
+
+\Definition{几何重数}{
+    $T$ 的特征值 $\lambda$ 的几何重数定义为 $\gm_{T}\braI{\lambda}:=\dim E_{T}\braI{\lambda}$ .
+}
+
+\par 当 $V$ 是有限维线性空间时, $T\bm v=\lambda\bm v$ 又等价于 $\braI{T-\lambda\bm I_{V}}\bm v=\bm 0$ , 因此特征值的存在性表明 $T-\lambda\bm I_{V}$ 不为单射, 当 $V$ 是有限维时则进一步表明 $T-\lambda\bm I_{V}$ 不可逆.
+
+\Convention{subcpt}{
+    \serial{1.} 设 $T\in\mathcal{L}\braI{V}$ , $\lambda\in\bfF$ 为 $T$ 的特征值;
+}
+
+\newpage

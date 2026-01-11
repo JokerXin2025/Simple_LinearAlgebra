@@ -1,0 +1,105 @@
+
+% 2025 Simple·System
+
+% ./Section/线性空间/线性变换/幂
+
+\Convention{subcpt}{
+    \serial{•}设 $T\in\mathcal{L}\braI{V}$ .
+}
+
+\par 现在让我们聚焦一种特殊的线性映射——它的定义域和陪域是相同的线性空间, 从而我们可以令其反复与自身复合, 这就导出了线性映射的幂的定义.
+
+\Definition{线性变换幂}{
+    对线性变换 $T\in\mathcal{L}\braI{V}$ 和正整数 $n$ , 我们定义其 $n$ 次幂为
+    \begin{align*}
+        T^{n}:=\underbrace{T\cdots T}_{n\text{个}T}
+    \end{align*}
+    另外, 我们规定 $T^{0}:=\bm I_{V}$ .
+}
+
+\par 上面的定义在形式上与\link{环}[矩阵]{矩阵的幂}是一致的, 因而我们可以在一定程度上将\link{环}[矩阵]{矩阵与线性映射的等效性}表述为
+\begin{align*}
+    \mathcal{M}\braI{T^{n}}=\braI{\mathcal{M}T}^{n}\ .
+\end{align*}
+
+\Theorem{核链&像链}(核链\&像链){
+    设 $T\in\mathcal{L}\braI{V}$ , 要么对一切 $k\in\bfN$ 有
+    \begin{align*}
+        \braIII{\bm 0}=\ker T^{0}\subset\cdots\subset\ker T^{k}\subset\ker T^{k+1}\subset\cdots\ ,\\[-16mm]
+    \end{align*}
+    \begin{align*}
+        V=\im T^{0}\supset\cdots\supset\im T^{k}\supset\im T^{k+1}\supset\cdots\ ,
+    \end{align*}
+    要么存在终止点 $m\in\bfN$ 使得
+    \begin{align*}
+        \braIII{\bm 0}=\ker T^{0}\subset\cdots\subset\ker T^{m}=\ker T^{m+1}=\cdots\ ,\\[-16mm]
+    \end{align*}
+    \begin{align*}
+        V=\im T^{0}\supset\cdots\supset\im T^{m}=\im T^{m+1}=\cdots\ .
+    \end{align*}
+}
+\Proof{证明}{
+    \par 先证明核链的单调性, 即
+    \begin{align*}
+        \ker T^{0}\subseteq\cdots\subseteq\ker T^{k}\subseteq\ker T^{k+1}\subseteq\cdots\ .
+    \end{align*}
+    对于任意的自然数 $k$ 和 $\bm v\in\ker T^{k}$ , 我们有 $T^{k+1}\bm v=TT^{k}\bm v=\bm 0$ , 因此 $\ker T^{k}\subseteq\ker T^{k+1}$ .
+    \par 再证明核链的稳定性, 即只要 $\ker T^{m}=\ker T^{m+1}$ 就有
+    \begin{align*}
+        \ker T^{m}=\ker T^{m+1}=\cdots=\ker T^{m+k}=\ker T^{m+k+1}=\cdots\ .
+    \end{align*}
+    对于任意的自然数 $k$ 和 $\bm v\in\ker T^{m+k+1}$ , 我们有
+    \begin{align*}
+        T^{m+1}T^{k}\bm v=T^{m+k+1}\bm v=\bm 0&\implies T^{k}\bm v\in\ker T^{m+1}\\[-2mm]
+        &\implies T^{k}\bm v\in\ker T^{m}\\[-2mm]
+        &\implies T^{m+k}\bm v=T^{m}T^{k}\bm v=\bm 0\ ,
+    \end{align*}
+    因此 $\ker T^{m+k}\supseteq\ker T^{m+k+1}$ , 这就导出了 $\ker T^{m+k}=\ker T^{m+k+1}$ .
+    \par 这两条性质共同完成了命题的证明.\ProofEndT
+}
+
+\Theorem{有限维核链&像链}(有限维核链\&像链的终止点){
+    对线性变换 $T\in\mathcal{L}\braI{V}$ , 存在自然数 $m\leqslant\dim V$ 使得
+    \begin{align*}
+        \braIII{\bm 0}=\ker T^{0}\subset\cdots\subset\ker T^{m}=\ker T^{m+1}=\cdots\ ,\\[-16mm]
+    \end{align*}
+    \begin{align*}
+        V=\im T^{0}\supset\cdots\supset\im T^{m}=\im T^{m+1}=\cdots\ ,
+    \end{align*}
+    并且 $V=\ker T^{m}\oplus\im T^{m}$ .
+}
+\Proof{证明}{
+    \par 现在我们证明
+    \begin{align*}
+        \ker T^{\dim V}=\ker T^{\dim V+1}\ ,
+    \end{align*}
+    假设此式不成立, 则由前两条性质可得
+    \begin{align*}
+        \braIII{\bm 0}=\ker T^{0}\subset\cdots\subset\ker T^{\dim V}\subset\ker T^{\dim V+1}\ ,
+    \end{align*}
+    其中每个真包含关系都使得维数至少增加 $1$ , 从而有 $\dim\ker T^{\dim V+1}\geqslant\dim V+1$ , 而这与 $\ker T^{\dim V+1}\subseteq V$ 矛盾.
+    \par 令 $m$ 是使得 $\ker T^{m}=\ker T^{m+1}$ 成立的最小正整数, 由\link{线性空间}[线性映射]{秩—零化度定理}知
+    \begin{align*}
+        \dim\im T^{m}=\dim V-\dim\ker T^{m}=\dim V-\dim\ker T^{m+1}=\dim\im T^{m+1}\ .
+    \end{align*}
+    从而 $m$ 也是使得 $\im T^{m}=\im T^{m+1}$ 成立的最小正整数.
+    \par 对于定理中剩余的部分, 假设 $\bm v\in\ker T^{m}\cap\im T^{m}$ , 则存在 $\bm u\in V$ 使得 $\bm v=T^{m}\bm u$ . 由 $\bm v\in\ker T^{m}$ 可得
+    \begin{align*}
+        T^{2m}\bm u=T^{m}T^{m}\bm u=T^{m}\bm v=\bm 0\ ,
+    \end{align*}
+    进而
+    \begin{align*}
+        \bm u\in\ker T^{2m}\implies\bm u\in\ker T^{m}\implies\bm v=T^{m}\bm u=\bm 0\ .
+    \end{align*}
+    这就证明了 $\ker T^{m}\cap\im T^{m}=\braIII{\bm 0}$ , 即 $\ker T^{m}+\im T^{m}$ 是直和, 并且
+    \begin{align*}
+        \dim V=\dim\ker T^{m}+\dim\im T^{m}=\dim\braI{\ker T^{m}\oplus\im T^{m}}\ ,
+    \end{align*}
+    于是 $V=\ker T^{m}\oplus\im T^{m}$ .\ProofEndT
+}
+
+\Definition{幂零变换}{
+    线性变换 $T\in\mathcal{L}\braI{V}$ 是幂零的, 当且仅当存在正整数 $m$ 使得 $T^{m}=\bm u_{V}$ .
+}
+
+\newpage
